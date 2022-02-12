@@ -1,16 +1,15 @@
-package drivetest;
+package tests;
 
-import iterator.Operator;
+import iterator.Iterator;
 import iterator.PostOfficeCollection;
 import template.BranchOffice;
 import template.HeadOffice;
 import template.PostOffice;
 import template.SubOffice;
 
-public class PostOfficeDriver {
+public class IteratorTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		PostOffice headOffice = new HeadOffice();
 		PostOffice branchOffice = new BranchOffice();
@@ -22,10 +21,14 @@ public class PostOfficeDriver {
 		poCollection.addItem(branchOffice);
 		poCollection.addItem(headOffice);
 		
-		Operator mailOperator = new Operator(poCollection);
+		Iterator iterator = poCollection.createIterator();
 		
-		mailOperator.processMail();
-		
+		if(iterator.hasNext()) {
+			System.out.println("Iterator test passed");
+		}
+		else {
+			System.out.println("Iterator test failed");
+		}
 	}
 
 }
